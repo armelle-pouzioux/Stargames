@@ -1,0 +1,246 @@
+:root {
+    --font-spe: "Jacquard 12";
+    --font-1: "Arimo";
+    --font-size-p: 20px;
+    --font-size-h1: 50px;
+
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --header-footer-bg: #f0f0f0;
+    --button-bg: hsl(0deg 0% 75%);
+    --button-shadow-light: #ffffff;
+    --button-shadow-dark: #292929;
+    --footer-text-color: #292929;
+    --input-bg-color: #ffffff;
+    --input-text-color: #000000;
+    --input-border-color: #ccc;
+}
+
+
+body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --header-footer-bg: #1f1f1f;
+    --button-bg: #333333;
+    --button-shadow-light: #555555;
+    --button-shadow-dark: #000000;
+    --footer-text-color: #ffffff;
+    --input-bg-color: #333333;
+    --input-text-color: #ffffff;
+    --input-border-color: #555555;
+}
+
+.dark-mode-toggle {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+}
+
+#toggle-dark-mode {
+    background-color: var(--button-bg);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow:
+        inset -1px -1px var(--button-shadow-dark),
+        inset 1px 1px var(--button-shadow-light),
+        inset -2px -2px var(--button-shadow-dark),
+        inset 2px 2px var(--button-shadow-light);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#toggle-dark-mode:hover {
+    transform: scale(1.1);
+}
+
+#toggle-dark-mode:active {
+    box-shadow:
+        inset -1px -1px var(--button-shadow-light),
+        inset 1px 1px var(--button-shadow-dark),
+        inset -2px -2px var(--button-shadow-light),
+        inset 2px 2px var(--button-shadow-dark);
+    transform: scale(0.9);
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+    text-decoration: none;
+    list-style-type: none;
+    border: none;
+    font-family: var(--font-1);
+    color: var(--text-color);
+}
+
+body {
+    background-color: var(--bg-color);
+}
+
+header {
+    text-align: center;
+    height: 10svh;
+    background-color: var(--header-footer-bg);
+}
+
+header h1 {
+    font-family: var(--font-spe);
+    font-size: var(--font-size-h1);
+    font-weight: normal;
+}
+
+footer {
+    text-align: center;
+    height: 5svh;
+    background-color: var(--header-footer-bg);
+    color: var(--footer-text-color);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 85svh;
+}
+
+main h2{
+    text-align: center;
+    padding: 5px;
+    font-family: var(--font-1);
+    font-size: var(--font-size-p);
+    font-weight: normal;
+}
+
+.menu, .tarot-menu, .ball-menu {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 85svh;
+
+
+    button {
+    border: none;
+    outline-offset: -4px;
+    cursor: pointer;
+    background: var(--button-bg);
+    box-shadow:
+        inset -1px -1px var(--button-shadow-dark),
+        inset 1px 1px var(--button-shadow-light),
+        inset -2px -2px var(--button-shadow-dark),
+        inset 2px 2px var(--button-shadow-light);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 10px 10px;
+    margin: 5%;
+    min-width: 200px;
+}
+ 
+
+button:active {
+    box-shadow:
+        inset -1px -1px var(--button-shadow-light),
+        inset 1px 1px var(--button-shadow-dark),
+        inset -2px -2px var(--button-shadow-light),
+        inset 2px 2px var(--button-shadow-dark);
+}
+}
+
+/* TAROT */
+
+.tarot-menu {
+    height: 20svh ;
+}
+
+#futurarea {
+    display: flex;
+}
+
+.carte {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    width: 150px; 
+    height: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.carte:hover {
+    transform: rotateY(10deg) rotateX(10deg);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.carte span {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.carte h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.carte p {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+}
+
+.carte::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+/* BALL */
+
+input{
+    min-width: 300px;
+    padding: 10px;
+    font-family: var(--font-size-p);
+    background-color: var(--input-bg-color);
+    color: var(--input-text-color);
+    border: 1px solid var(--input-border-color);
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+
+}
+
+.ball-menu{
+    height: 40svh;
+}
+
+#answerArea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+
+.ball-answer {
+    width: 300px; 
+    height: auto; 
+    border-radius: 10px; 
+}
