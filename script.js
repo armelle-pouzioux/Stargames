@@ -24,3 +24,19 @@ toggleButton.addEventListener("click", () => {
         toggleButton.classList.remove("dark-mode-active");
     }, 500);
 });
+
+// Menu burger
+const hamburgerButton = document.getElementById("hamburgerButton");
+const hamburgerMenu = document.getElementById("hamburgerMenu");
+
+
+hamburgerButton.addEventListener("click", () => {
+    hamburgerMenu.classList.toggle("active");
+});
+
+
+document.addEventListener("click", (event) => {
+    if (!hamburgerMenu.contains(event.target) && !hamburgerButton.contains(event.target)) {
+        hamburgerMenu.classList.remove("active"); 
+    }
+});

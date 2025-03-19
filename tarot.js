@@ -224,11 +224,17 @@ const tarotMajorArcana = [
 ];
 
 const tarotButton = document.getElementById("tarotButton");
-const futurarea = document.getElementById("futurarea");
+const futurArea = document.getElementById("futurArea");
+const tarotImage = document.getElementById("tarotImage");
 
 function drawRandomCard() {
     
-    futurarea.innerHTML = "";
+    tarotImage.style.display= "none";
+
+    const existingCard = futurArea.querySelector(".carte");
+    if (existingCard) {
+        futurArea.removeChild(existingCard);
+    }
 
     const randomIndex = Math.floor(Math.random() * tarotMajorArcana.length);
     const carteTiree = tarotMajorArcana[randomIndex];
@@ -240,7 +246,7 @@ function drawRandomCard() {
         <h3>${carteTiree.name}</h3>
         <p>${carteTiree.description}</p>
     `;
-    futurarea.appendChild(carteElement);
+    futurArea.appendChild(carteElement);
 }
 
 tarotButton.addEventListener("click", drawRandomCard);
